@@ -1,0 +1,80 @@
+GET  http://localhost:6001/students
+
+
+###
+GET  http://localhost:6001/team
+
+###
+GET  http://localhost:6001/task
+
+
+###
+POST  http://localhost:6001/task
+Content-Type: application/json
+
+{
+    "name": "Mr Ola",
+    "desc": "Get to office now",
+    "to": "Bukky",
+    "date": "04/09/2022"
+}
+
+
+###
+PUT  http://localhost:6001/task/1
+Content-Type: application/json
+
+{
+    "name": "Mr Ola",
+    "desc": "Get to office now",
+    "to": "Bukola",
+    "date": "04/09/2022"
+}
+
+###
+DELETE   http://localhost:6001/task/1
+
+
+###
+POST  http://localhost:6001/team
+Content-Type: application/json
+
+{
+    "name": "Mr Ola",
+    "title":"driver",
+    "desc": "basketball,baseball,football",
+    "image": "buisdbfvuisoivsodv"
+}
+
+###
+PUT  http://localhost:6001/students/8
+Content-Type: application/json
+
+{
+    "id": 1,
+    "name": "olushola",
+    "email": "shola@mail",
+    "phoneNumber": 3456788,
+    "duration": "2 months",
+    "completed": "false"
+}
+
+###
+POST http://localhost:6001/api/register
+Content-Type: application/json
+
+{
+    "username":"abiona11",
+    "email":"abiona@dev",
+    "password":"erty345"
+}
+
+
+###
+POST http://localhost:6001/api/login
+Content-Type: application/json
+
+{
+    "username":"abiona1",
+    "password":"erty345"
+}
