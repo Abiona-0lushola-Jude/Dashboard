@@ -8,11 +8,12 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { StudentContextProvider } from './Pages/Contexts/StudentContext';
 import { TeamContextProvider } from './Pages/Contexts/TeamContext';
 import { TaskContextProvider } from './Pages/Contexts/TaskContext';
-
+import { UserContextProvider } from './Pages/Contexts/UserContext';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
         <BrowserRouter>
+        <UserContextProvider>
         <TeamContextProvider>
         <StudentContextProvider>
         <TaskContextProvider>
@@ -20,5 +21,6 @@ root.render(
         </TaskContextProvider>
         </StudentContextProvider>  
         </TeamContextProvider>
+        </UserContextProvider>
         </BrowserRouter>
 );

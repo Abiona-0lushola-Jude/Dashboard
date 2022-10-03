@@ -3,8 +3,13 @@ import { NavLink } from 'react-router-dom'
 import {FaThLarge} from 'react-icons/fa'
 import {FaTasks} from 'react-icons/fa'
 import {RiTeamLine} from 'react-icons/ri'
+import { userContext } from './Contexts/UserContext'
+import { useContext } from 'react'
 
 const Navbar = () => {
+  
+  const [user] = useContext(userContext)
+  const username = !user ? "": user.username
   return (
     <div className='nav-list'>
       <div className="nav-top">
@@ -31,8 +36,12 @@ const Navbar = () => {
       </div>
       
       <div className="nav-below">
-        <h6>mario@dev</h6>
-        <button className="btn btn-sm btn-warning text-white">Sign Out</button>
+        {username && 
+        <>
+        <h6 className='name'>{username}</h6>
+        <button className="logout bttn btn-lg">Sign Out</button>
+        </>
+        }
       </div>
     </div>
   )
