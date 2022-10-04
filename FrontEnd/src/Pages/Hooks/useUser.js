@@ -6,7 +6,7 @@ export default function useUser() {
 
     const [loading, setLoading] = useState(true)
     const [user, setUser] = useContext(userContext)
-    const [error, setError] = useState(false)
+    const [error, setError] = useState(null)
 
 
 
@@ -14,7 +14,7 @@ export default function useUser() {
         try {
             await axios.post("http://localhost:6001/api/register", value)
             setLoading(false)
-            setError(false)
+            setError(null)
         } catch (err) {
             setLoading(false)
             setUser(null)
@@ -28,8 +28,8 @@ export default function useUser() {
             const res = await axios.post("http://localhost:6001/api/login", value)
             setLoading(false)
             setUser(res.data)
-            setError(false)
-            console.log(user)
+            setError(null)
+            console.log(error)
         } catch (err) {
             setLoading(false)
             setUser(null)

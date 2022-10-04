@@ -22,8 +22,8 @@ const HomePage = () => {
     <div className='container-lg'>
       <div className="row">
         <div className="col-3">
-          <div className="task-dash num-card border">
-            <h5>Last Task By {lastTask.name}</h5>
+          <div className="task-dash num-card">
+            <h5 color='red'>Last Task By {lastTask.name}</h5>
             <LastTask task={lastTask}/>
           </div>
           <div className="dash-member mt-5 num-card border">

@@ -27,9 +27,10 @@ const Register = ({close, open}) => {
     function handleSubmit(e){
         e.preventDefault()
         postUser(regForm)
-        if(!error){
-          close()
+        if(error === null){
+          return
         }
+        open()
     }
 
   return (

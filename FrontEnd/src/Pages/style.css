@@ -37,7 +37,13 @@
 .task-dash,
 .dash-member{
     height: 15rem;
-    /* overflow:auto; */
+    box-shadow: 2px 2px 2px gray,
+                2px 2px 3px gray;
+}
+.task-dash h5,
+.dash-member h5{
+    color: #22506C;
+    font-size: 1.2rem;
 }
 .team{
     display: flex;

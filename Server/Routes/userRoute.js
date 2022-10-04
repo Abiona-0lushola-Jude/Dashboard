@@ -6,11 +6,11 @@ const userController = require('../Controllers/userController')
 router.post('/register', userController.registerUser)
 
 
-
-
-
-
 // To login a user
 router.post('/login', userController.loginUser)
+
+
+// to signout or delete user
+router.post('/signout', userController.signoutUser)
 
 module.exports = router

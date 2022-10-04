@@ -64,6 +64,36 @@ module.exports = {
 
         })
 
+    },
+
+    signoutUser: async (req, res)=>{
+        const userIdName = req.body.username
+        const userIdPaassword = req.body.password
+
+        const q = "SELECT * FROM dashboard.user WHERE `username`= ? "
+
+        await DB.query(q, [userIdName],async (err, data)=> {
+            if(err) return res.status(500).json({message: err.message})
+
+            if(data.length <= 0){
+                return res.status(400).json("Username not found!")
+            }
+
+            const match  = await bcrypt.compare(userIdPaassword, data[0].password)
+            if(!match){
+                return res.status(400).json("Incorrect Password")
+            }else{
+                const deleteQuery = "DELETE FROM dashboard.user WHERE  `username`= ?"
+
+                await DB.query(deleteQuery, [userIdName], (err, data)=>{
+                    if(err) return res.status(500).json({message: err.message})
+
+
+                    return res.status(200).json(`${userIdName} has been deleted!`)
+                })
+            }
+
+        })
     }
 
 }

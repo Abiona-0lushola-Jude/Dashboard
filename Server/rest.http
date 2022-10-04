@@ -78,3 +78,13 @@ Content-Type: application/json
     "username":"abiona1",
     "password":"erty345"
 }
+
+
+####
+POST http://localhost:6001/api/signout
+Content-Type: application/json
+
+{
+    "username":"abiona15",
+    "password":"erty345"
+}

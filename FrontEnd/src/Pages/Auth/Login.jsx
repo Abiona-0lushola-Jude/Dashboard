@@ -25,14 +25,16 @@ const Login = ({close}) => {
         
     }
 
-    
+    const username = !user ? "loading" : user
 
-    function handleSubmit(e){
+      async  function handleSubmit(e){
         e.preventDefault()
         loginUser(logForm)
-        if(error){
-          close()
+
+        if(error === null){
+          return 
         }
+        close()
         navigate('/')
     }
 
