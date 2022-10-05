@@ -29,11 +29,11 @@ export default function useUser() {
             setLoading(false)
             setUser(res.data)
             setError(null)
-            console.log(error)
         } catch (err) {
             setLoading(false)
             setUser(null)
             setError(err.response.data)
+            console.log(error)
         }
     }
 

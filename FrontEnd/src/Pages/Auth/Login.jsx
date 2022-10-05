@@ -27,14 +27,14 @@ const Login = ({close}) => {
 
     const username = !user ? "loading" : user
 
-      async  function handleSubmit(e){
-        e.preventDefault()
-        loginUser(logForm)
 
+      async function handleSubmit(e){
+
+        e.preventDefault()
+        await loginUser(logForm)
         if(error === null){
-          return 
+          return close()
         }
-        close()
         navigate('/')
     }
 
@@ -51,8 +51,6 @@ const Login = ({close}) => {
           <button className='button login-btn'>Login</button>
         </div>
         {error && <p className="err">{error}</p>}
-        {/* <p className="err">Incorrect password</p> */}
-        
       </form>
     </div>
   )

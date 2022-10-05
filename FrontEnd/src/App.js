@@ -43,7 +43,7 @@ function App() {
       <div className='page container-lg  mx-5 my-3'>
         <TopNav  login={openLogin} signup={openReg}/>
         {login && <Login close={openLogin} />}
-        {register && <Register close={openReg} open={openLogin}/>}
+        {register && <Register open={openLogin}/>}
         { user && 
           <Routes>
             <Route path='/' element={<HomePage />} />

@@ -50,17 +50,17 @@ module.exports = {
             if(err) return res.status(500).json({message: err.message})
 
             if(data.length <= 0){
-                return res.status(400).json("Username not found!")
+                return res.status(406).json("Username not found!")
             }
 
             const match  = await bcrypt.compare(userIdPaassword, data[0].password)
             if(!match){
-                return res.status(400).json("Incorrect Password")
-            }else{
-                return res.status(200).json({
-                    username: userIdName
-                })
+                return res.status(400).json("Incorrect Password!")
             }
+
+            return res.status(200).json({
+                username: userIdName
+            })
 
         })
 

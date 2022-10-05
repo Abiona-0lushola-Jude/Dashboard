@@ -24,9 +24,9 @@ const Register = ({close, open}) => {
         
     }
 
-    function handleSubmit(e){
+    async function handleSubmit(e){
         e.preventDefault()
-        postUser(regForm)
+        await postUser(regForm)
         if(error === null){
           return
         }
