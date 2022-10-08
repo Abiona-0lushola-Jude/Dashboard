@@ -1,7 +1,7 @@
 import React from 'react'
 import useTeam from '../Hooks/useTeam'
 
-const TeamCard = ({teams}) => {
+const TeamCard = ({teams, pick}) => {
     const {deleteTeam} = useTeam()
 
     function onDelete(id){
@@ -18,7 +18,7 @@ const TeamCard = ({teams}) => {
           <p>Title: {teams.title}</p>
           <h6>Desc: {teams.desc}</h6>
           <div className="btn-grouping">
-            <button className='btn btn-sm btn-primary'>Update</button>
+            <button className='btn btn-sm btn-primary' onClick={()=> pick(teams.id)}>Update</button>
             <button className='btn btn-sm btn-danger' onClick={()=> onDelete(teams.id)}>Delete</button>
           </div>
         </div>

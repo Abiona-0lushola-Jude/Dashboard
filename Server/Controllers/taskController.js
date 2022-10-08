@@ -21,10 +21,9 @@ module.exports= {
     },
     updateTask: async (req, res)=>{
         const taskId = req.params.id
-        const q = "UPDATE dashboard.task SET `name`=? , `desc`=? , `to`=?, `date`=? where id =?"
+        const q = "UPDATE dashboard.task SET  `desc`=? , `to`=?, `date`=? where id =?"
 
         const values = [
-            req.body.name,
             req.body.desc,
             req.body.to,
             req.body.date

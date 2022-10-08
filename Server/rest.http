@@ -89,3 +89,14 @@ Content-Type: application/json
     ",
     "password":"erty345"
 }
+
+###
+PUT  http://localhost:6001/team/
+Content-Type: application/json
+
+{
+    "name": "Mr Ola",
+    "title":"driver",
+    "desc": "basketball,baseball,football",
+    "image": "buisdbfvuisoivsodv"
+}

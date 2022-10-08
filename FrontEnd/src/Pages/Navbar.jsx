@@ -6,10 +6,16 @@ import {RiTeamLine} from 'react-icons/ri'
 import { userContext } from './Contexts/UserContext'
 import { useContext } from 'react'
 
-const Navbar = () => {
+const Navbar = ({open}) => {
   
   const [user] = useContext(userContext)
   const username = !user ? "": user.username
+
+  function handleClick(){
+    open()
+  }
+
+
   return (
     <div className='nav-list'>
       <div className="nav-top">
@@ -36,10 +42,10 @@ const Navbar = () => {
       </div>
       
       <div className="nav-below">
-        {username && 
+        {user &&
         <>
         <h6 className='name'>{username}</h6>
-        <button className="logout bttn btn-lg">Sign Out</button>
+        <button className="logout bttn btn-lg" onClick={handleClick}>Sign Out</button>
         </>
         }
       </div>

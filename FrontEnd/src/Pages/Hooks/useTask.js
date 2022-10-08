@@ -58,16 +58,11 @@ export  function useTask() {
             })
         }
      
-        const updateTask = (post) => {
-            axios.put('http://localhost:6001/task',post )
+        const updateTask = (id, post) => {
+            axios.put(`http://localhost:6001/task/${id}`,post)
             .then(res=> {
                 setLoading(false)
-                setTask(prev=>{
-                    return [
-                        ...prev,
-                        post
-                    ]
-                })
+                setTask(task.map((el)=> el.id === id ? {...el,desc:post.desc, to:post.to, date:post.date}: el))
                 setError('')
             })
             .catch(err=>{

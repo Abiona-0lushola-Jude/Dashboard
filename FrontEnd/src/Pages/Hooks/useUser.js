@@ -37,10 +37,22 @@ export default function useUser() {
         }
     }
 
+    async function signOut(value){
+        try {
+            const res = await axios.post("http://localhost:6001/api/signout", value)
+            setLoading(false)
+            setUser(null)
+            setError(null)
+            console.log(res.data)
+        } catch (err) {
+            setLoading(false)
+            setUser(null)
+            setError(err.response.data)
+        }
+    }
 
 
 
 
-
-  return {postUser, loading, user, error, setError, loginUser}
+  return {postUser, loading, user, error, setError, loginUser, signOut}
 }

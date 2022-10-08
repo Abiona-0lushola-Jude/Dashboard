@@ -60,16 +60,11 @@ export default function useTeam() {
         })
     }
  
-    const updateTeam = (post) => {
-        axios.put('http://localhost:6001/team',post )
+    const updateTeam = (id, post) => {
+        axios.put(`http://localhost:6001/team/${id}`, post )
         .then(res=> {
             setLoading(false)
-            setTeam(prev=>{
-                return [
-                    ...prev,
-                    post
-                ]
-            })
+            setTeam(team.map((el)=> el.id === id ? {...el, name:post.name, title:post.title, desc:post.desc} : el))
             setError('')
         })
         .catch(err=>{
