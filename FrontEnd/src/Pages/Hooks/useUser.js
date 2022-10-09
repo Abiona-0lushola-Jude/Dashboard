@@ -28,12 +28,14 @@ export default function useUser() {
             const res = await axios.post("http://localhost:6001/api/login", value)
             setLoading(false)
             setUser(res.data)
+            localStorage.setItem('user', res.data.username)
             setError(null)
         } catch (err) {
             setLoading(false)
             setUser(null)
             setError(err.response.data)
             console.log(error)
+            console.log(localStorage.getItem('user'))
         }
     }
 
@@ -43,7 +45,7 @@ export default function useUser() {
             setLoading(false)
             setUser(null)
             setError(null)
-            console.log(res.data)
+            localStorage.clear('user')
         } catch (err) {
             setLoading(false)
             setUser(null)

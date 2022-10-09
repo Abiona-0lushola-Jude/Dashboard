@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom'
 const Login = ({close}) => {
   const navigate = useNavigate()
 
-  const {loginUser, error, user, setError} = useUser()
+  const {loginUser, error} = useUser()
 
     const [logForm, setLogForm] = useState({
         username:"",
@@ -25,16 +25,14 @@ const Login = ({close}) => {
         
     }
 
-    const username = !user ? "loading" : user
-
 
       async function handleSubmit(e){
 
         e.preventDefault()
         await loginUser(logForm)
-        if(error === null){
-          return close()
-        }
+        if(localStorage.getItem('user') !== null){
+          close()
+        } 
         navigate('/')
     }
 

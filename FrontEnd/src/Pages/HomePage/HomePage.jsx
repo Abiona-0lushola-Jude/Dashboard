@@ -4,7 +4,6 @@ import LastTask from './LastTask'
 import NumberPage from './NumberPage'
 import RandomTeam from './RandomTeam'
 import useStudent from '../Hooks/useStudents'
-import useMessage from '../Hooks/useMessage'
 
 const HomePage = () => {
 
@@ -12,7 +11,7 @@ const HomePage = () => {
   GetAllStudent()
 
   // Here is the condition to get the last task inputed from the server
-  const {GetAllTask, task, loading, error} = useTask()
+  const {GetAllTask, task, loading} = useTask()
   GetAllTask()
   const lastTask = loading ? "loading" : task[task.length -1]
 

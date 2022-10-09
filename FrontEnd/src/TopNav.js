@@ -8,11 +8,12 @@ const TopNav = ( {login, signup} ) => {
 
   function logout(){
     setUser(null)
+    localStorage.clear('user')
   }
 
   return (
     <div className='top-nav'>
-        {user && <h5>Welcome, {!user ? "" : user.username}</h5>}
+        {user && <h5>Welcome, {localStorage.getItem('user')}</h5>}
       <div className="reg-btn">
         {user ? <button className="logout bttn" onClick={logout}>LogOut</button> :
         (

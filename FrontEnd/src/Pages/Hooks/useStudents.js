@@ -63,7 +63,6 @@ export default function useStudents() {
 
 
     const updateStudent = (id, post) =>{
-        console.log(id, post)
         axios.put(`http://localhost:6001/students/${id}`, post)
         .then(res=> {
             setLoading(false)

@@ -5,7 +5,7 @@ export const userContext = createContext()
 
 export function UserContextProvider({children}) {
 
-    const [user, setUser] = useState(null)
+    const [user, setUser] = useState( localStorage.getItem('user') || null)
 
   return(
     <userContext.Provider value={[user, setUser]}>

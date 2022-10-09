@@ -45,8 +45,6 @@ function openSignOut(){
 }
 
 
-  const username = !user ? "Loading" : user.username
-
   return (
     <div className='App'>
       <div className='nav'>

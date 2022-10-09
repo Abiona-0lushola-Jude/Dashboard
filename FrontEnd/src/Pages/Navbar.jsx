@@ -9,7 +9,6 @@ import { useContext } from 'react'
 const Navbar = ({open}) => {
   
   const [user] = useContext(userContext)
-  const username = !user ? "": user.username
 
   function handleClick(){
     open()
@@ -44,7 +43,7 @@ const Navbar = ({open}) => {
       <div className="nav-below">
         {user &&
         <>
-        <h6 className='name'>{username}</h6>
+        <h6 className='name'>{localStorage.getItem('user')}</h6>
         <button className="logout bttn btn-lg" onClick={handleClick}>Sign Out</button>
         </>
         }
